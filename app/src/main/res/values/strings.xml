@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">Innerly</string>
+    <string name="splash_tagline">Growth begins\nwith honesty</string>
+    <string name="btn_start_desc">Start</string>
+
+    <string name="welcome_back">Welcome\nback,</string>
+    <string name="reflections_waiting">Your reflections are waiting.</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="no_account_create">Don\'t have an account? Create one</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+
+    <string name="create_your_space">Create your\nspace.</string>
+    <string name="private_reflection_room">This is your private reflection room.</string>
+    <string name="create_account">Create Account</string>
+    <string name="hint_name">Name</string>
+
+    <string name="how_are_you_feeling">How are you feeling about your goals today?</string>
+    <string name="no_right_answer">There’s no right answer.</string>
+    <string name="start_reflecting">Start reflecting</string>
+
+    <string name="hi_user">Hi, %1$s.</string>
+    <string name="check_in_prompt">Take a moment to check in with\nyourself</string>
+    <string name="todays_reflection">Today\'s Reflection</string>
+    <string name="what_on_your_mind">What\'s been on your mind about your goals today?</string>
+    <string name="write_reflection">Write Reflection</string>
+    <string name="my_goals">My Goals</string>
+    <string name="past_reflections">Past Reflections</string>
+
+    <string name="your_goals">Your Goals</string>
+    <string name="goals_reflecting_on">These are the goals you’re reflecting on</string>
+    <string name="new_goal">+ New Goal</string>
+    <string name="no_goals_yet">You haven’t added any goals yet.\nStart with something meaningful.</string>
+
+    <string name="what_goal_reflecting">What goal are you\nreflecting on?</string>
+    <string name="hint_goal_title">Goal title</string>
+    <string name="hint_goal_why">Why does this matter to you?</string>
+    <string name="goal_feel_prompt">How do you feel about this goal?</string>
+    <string name="save_goal">Save Goal</string>
+
+    <string name="reflect_on_goal">Reflect on this goal</string>
+    <string name="what_changed">What changed since last time?</string>
+    <string name="hint_reflection">Write honestly. This is just for you.</string>
+    <string name="mood_prompt">How does this make you feel?</string>
+    <string name="save_reflection">Save Reflection</string>
+
+    <string name="you_did_it">You did it.</string>
+    <string name="before_move_on">Before you move on, reflect on what you learned.</string>
+    <string name="hint_lessons_learned">What did this goal teach you?</string>
+    <string name="complete_goal">Complete Goal</string>
+
+    <string name="completed_goals">Completed Goals</string>
+    <string name="no_completed_goals">No completed goals yet.</string>
+
+    <string name="write_new_reflection">Write New Reflection</string>
+    <string name="mark_as_achieved">Mark as Achieved</string>
+    <string name="no_reflections_yet">No reflections yet. Write your first one!</string>
+
+    <string name="mood_motivated">Motivated</string>
+    <string name="mood_calm">Calm</string>
+    <string name="mood_hopeful">Hopeful</string>
+    <string name="mood_confused">Confused</string>
+    <string name="mood_overwhelmed">Overwhelmed</string>
+    <string name="mood_avoiding">Avoiding It</string>
+
+    <string name="mood_excited">Excited</string>
+    <string name="mood_nervous">Nervous</string>
+    <string name="mood_doubtful">Doubtful</string>
+    <string name="mood_determined">Determined</string>
+    <string name="mood_unsure">Unsure</string>
+
+    <string name="mood_relieved">Relieved</string>
+    <string name="mood_frustrated">Frustrated</string>
+    <string name="mood_inspired">Inspired</string>
+    <string name="mood_stuck">Stuck</string>
+    <string name="mood_proud">Proud</string>
+
+    <string name="error_fill_fields">Please fill all fields</string>
+    <string name="error_invalid_credentials">Invalid credentials</string>
+    <string name="error_email_exists">Email already exists</string>
+    <string name="error_fill_fields_mood">Please fill all fields and select a mood</string>
+    <string name="error_write_something_mood">Please write something and select a mood</string>
+    <string name="goal_created_date">Created %1$s</string>
+    <string name="reflection_lessons_learned">What I learned: %1$s</string>
+
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
