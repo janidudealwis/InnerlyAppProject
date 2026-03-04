@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Heading Style: Cal Sans -->
+    <style name="HeadingText">
+        <item name="android:fontFamily">@font/cal_sans</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <!-- Body Style: Poppins -->
+    <style name="BodyText">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <!-- Pill Button Style -->
+    <style name="PillButton" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/primary_pink</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Innerly.Pill</item>
+        <item name="strokeColor">@color/border_black</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <!-- Secondary Pill Button (White background) -->
+    <style name="SecondaryPillButton" parent="PillButton">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <!-- Pill Input Style -->
+    <style name="PillInput">
+        <item name="android:background">@drawable/pill_input_background</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:padding">18dp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textColorHint">#80000000</item>
+        <item name="android:letterSpacing">-0.03</item>
+    </style>
+
+    <style name="ShapeAppearance.Innerly.Pill" parent="">
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
