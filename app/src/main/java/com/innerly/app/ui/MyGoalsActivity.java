@@ -91,4 +91,4 @@ public class MyGoalsActivity extends AppCompatActivity {
             adapter.setGoals(goals);
         }
     }
-}// Updated for RecyclerView
+}

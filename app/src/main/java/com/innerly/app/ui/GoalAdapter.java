@@ -87,4 +87,4 @@ public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalViewHolder
             tvDate.setText(dateText);
         }
     }
-}   // Updated for RecyclerView
+}
