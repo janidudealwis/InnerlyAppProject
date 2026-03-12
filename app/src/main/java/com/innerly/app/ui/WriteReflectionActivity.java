@@ -18,15 +18,11 @@ public class WriteReflectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_write_reflection);
 
         long goalId = getIntent().getLongExtra("GOAL_ID", -1);
-        if (goalId == -1L) {
         if (goalId == -1) {
             Toast.makeText(this, "Goal not found", Toast.LENGTH_SHORT).show();
-
             finish();
             return;
         }
-
-        final DatabaseHelper dbHelper = new DatabaseHelper(this);
 
         final EditText etReflection = findViewById(R.id.etReflectionText);
         final RadioGroup rgMoods = findViewById(R.id.rgMoods);
@@ -44,48 +40,18 @@ public class WriteReflectionActivity extends AppCompatActivity {
             RadioButton rbSelected = findViewById(selectedMoodId);
             String mood = rbSelected.getText().toString();
 
-            // නව DatabaseHelper method එක (addReflection) භාවිතා කිරීම
-            boolean success = dbHelper.addReflection(goalId, text, mood);
+            // Save the reflection using the DatabaseHelper
+            try (DatabaseHelper dbHelper = new DatabaseHelper(this)) {
+                boolean success = dbHelper.addReflection(goalId, text, mood);
 
-            if (success) {
-                Toast.makeText(WriteReflectionActivity.this, "Reflection Saved!", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                Toast.makeText(WriteReflectionActivity.this, "Error saving reflection", Toast.LENGTH_SHORT).show();
+                if (success) {
+                    Toast.makeText(WriteReflectionActivity.this, "Reflection Saved!", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    Toast.makeText(WriteReflectionActivity.this, "Error saving reflection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 }
-        final DatabaseHelper db = new DatabaseHelper(this);
-        final EditText etReflectionText = findViewById(R.id.etReflectionText);
-        final RadioGroup rgMoods = findViewById(R.id.rgMoods);
-        final Button btnSaveReflection = findViewById(R.id.btnSaveReflection);
-
-        btnSaveReflection.setOnClickListener(v -> {
-            String text = etReflectionText.getText().toString().trim();
-            int selectedMoodId = rgMoods.getCheckedRadioButtonId();
-
-            if (text.isEmpty()) {
-                Toast.makeText(this, "Please write your reflection", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            String mood = "";
-            if (selectedMoodId != -1) {
-                RadioButton rbSelected = findViewById(selectedMoodId);
-                mood = rbSelected.getText().toString();
-            }
-
-            boolean saved = db.addReflection(goalId, text, mood);
-            if (saved) {
-                Toast.makeText(this, "Reflection saved!", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                Toast.makeText(this, "Error saving reflection", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-}
-
-
 

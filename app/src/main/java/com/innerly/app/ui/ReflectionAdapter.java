@@ -18,44 +18,25 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Re
 
     private List<Reflection> reflections = new ArrayList<>();
 
-    // දත්ත අලුත් කිරීම සඳහා method එක
+    // Call this to refresh the list with new data
     public void setReflections(List<Reflection> reflections) {
         this.reflections = reflections;
         notifyDataSetChanged();
-import java.util.List;
-
-public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.ViewHolder> {
-
-    private final List<String> reflections;
-
-    public ReflectionAdapter(List<String> reflections) {
-        this.reflections = reflections;
-
     }
 
     @NonNull
     @Override
     public ReflectionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // item_reflection layout එක inflate කිරීම
+        // Inflate the item layout for each reflection card
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_reflection, parent, false);
         return new ReflectionViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ReflectionViewHolder holder, int position) {
-        // අදාළ ස්ථානයේ ඇති Reflection එක ලබාගෙන ViewHolder එකට සම්බන්ධ කිරීම
+        // Grab the reflection at this position and bind it to the view
         Reflection reflection = reflections.get(position);
         holder.bind(reflection);
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_1, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvText.setText(reflections.get(position));
-
     }
 
     @Override
@@ -63,7 +44,7 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Vi
         return reflections.size();
     }
 
-    // ViewHolder Class එක
+    // ViewHolder class that holds references to the card's views
     public static class ReflectionViewHolder extends RecyclerView.ViewHolder {
         private final TextView tvDate;
         private final TextView tvMood;
@@ -77,7 +58,7 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Vi
         }
 
         public void bind(Reflection reflection) {
-            // දිනය Format කිරීම (MMM dd, yyyy)
+            // Format the date nicely (e.g. Mar 12, 2026)
             SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
             String formattedDate = sdf.format(new Date(reflection.getDate()));
 
@@ -87,15 +68,3 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Vi
         }
     }
 }
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvText;
-
-        ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            tvText = itemView.findViewById(android.R.id.text1);
-        }
-    }
-}
-
-
-
