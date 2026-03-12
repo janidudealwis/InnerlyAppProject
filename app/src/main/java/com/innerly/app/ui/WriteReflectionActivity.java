@@ -24,32 +24,32 @@ public class WriteReflectionActivity extends AppCompatActivity {
             return;
         }
 
-        final EditText etReflection = findViewById(R.id.etReflectionText);
+        final DatabaseHelper db = new DatabaseHelper(this);
+        final EditText etReflectionText = findViewById(R.id.etReflectionText);
         final RadioGroup rgMoods = findViewById(R.id.rgMoods);
-        final Button btnSave = findViewById(R.id.btnSaveReflection);
+        final Button btnSaveReflection = findViewById(R.id.btnSaveReflection);
 
-        btnSave.setOnClickListener(v -> {
-            String text = etReflection.getText().toString().trim();
+        btnSaveReflection.setOnClickListener(v -> {
+            String text = etReflectionText.getText().toString().trim();
             int selectedMoodId = rgMoods.getCheckedRadioButtonId();
 
-            if (text.isEmpty() || selectedMoodId == -1) {
-                Toast.makeText(this, R.string.error_write_something_mood, Toast.LENGTH_SHORT).show();
+            if (text.isEmpty()) {
+                Toast.makeText(this, "Please write your reflection", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            RadioButton rbSelected = findViewById(selectedMoodId);
-            String mood = rbSelected.getText().toString();
+            String mood = "";
+            if (selectedMoodId != -1) {
+                RadioButton rbSelected = findViewById(selectedMoodId);
+                mood = rbSelected.getText().toString();
+            }
 
-            // Save the reflection using the DatabaseHelper
-            try (DatabaseHelper dbHelper = new DatabaseHelper(this)) {
-                boolean success = dbHelper.addReflection(goalId, text, mood);
-
-                if (success) {
-                    Toast.makeText(WriteReflectionActivity.this, "Reflection Saved!", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(WriteReflectionActivity.this, "Error saving reflection", Toast.LENGTH_SHORT).show();
-                }
+            boolean saved = db.addReflection(goalId, text, mood);
+            if (saved) {
+                Toast.makeText(this, "Reflection saved!", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(this, "Error saving reflection", Toast.LENGTH_SHORT).show();
             }
         });
     }

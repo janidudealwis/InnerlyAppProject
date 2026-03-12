@@ -19,7 +19,7 @@ public class MoodCheckActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_check);
 
-
+        // SessionManager එක සාදා ගැනීම
         final SessionManager sessionManager = new SessionManager(this);
 
         GridLayout moodGrid = findViewById(R.id.moodGrid);
@@ -32,21 +32,21 @@ public class MoodCheckActivity extends AppCompatActivity {
             }
         }
 
-        // "Start Reflecting" button action
+        // "Start Reflecting" බොත්තම ක්ලික් කළ විට සිදුවන දේ
         findViewById(R.id.btnStartReflecting).setOnClickListener(v -> {
 
-            // If the user is already logged in, take them straight to the home screen
+            // පරිශීලකයා දැනටමත් ලොගින් වී ඇත්නම් HomeActivity වෙත යැවීම
             if (sessionManager.isLoggedIn()) {
                 Intent intent = new Intent(MoodCheckActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
-            // Otherwise, send them to the login screen first
+            // ලොගින් වී නොමැති නම් LoginActivity වෙත යැවීම
             else {
                 Intent intent = new Intent(MoodCheckActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
 
-            // We're done here, so close this screen
+            // මෙම Screen එක වසා දැමීම
             finish();
         });
     }

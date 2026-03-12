@@ -15,7 +15,7 @@
 
 ## 📸 App Showcase
 
-
+> **Note:** Create a folder named `screenshots` in your root directory and add your app images there to see them here.
 
 <p align="center">
   <img src="screenshots/splash.png" width="200" alt="Splash Screen" />
@@ -106,20 +106,20 @@ The application utilizes a relational database structure with foreign key constr
 
 As per the project guidelines, the work was divided to ensure balanced contributions:
 
-### **Member 01: [M.Kavindu Rasanjana [ICT/2022/050]]**
+### **Member 01: [ඔබේ නම]**
 - Initial project structure and Android configuration.
 - SQLite Database foundation (`DatabaseHelper`).
 - Authentication system (Registration & Login Logic).
 - Security implementation (**SHA-256 Password Hashing**).
 - Session Management (`SessionManager`).
 
-### **Member 02: [සාමාජික 02 නම මෙතැනට]**
+### **Member 02: [සාමාජික 02 නම]**
 - Core Goal Feature implementation (Goal Data Model).
 - Goal CRUD operations (Create and Read logic).
 - Dashboard UI design and RecyclerView implementation.
 - `GoalAdapter` development for custom goal listing.
 
-### **Member 03: [සාමාජික 03 නම මෙතැනට]**
+### **Member 03: [සාමාජික 03 නම]**
 - Reflection system development (Reflections Table & Logic).
 - Goal Details and "Update/Delete" functionality.
 - Achievement Archive and `GoalAchievedActivity` logic.
@@ -129,4 +129,8 @@ As per the project guidelines, the work was divided to ensure balanced contribut
 
 ## ⚙️ Installation
 1. **Clone the repository**:
-   
+   ```bash
+   git clone https://github.com/[your-username]/innerly.git
+   ```
+2. Open the project in **Android Studio**.
+3. Build and run on an **Emulator** or **Physical Device**.

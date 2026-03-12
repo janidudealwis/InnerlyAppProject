@@ -6,37 +6,27 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.innerly.app.R;
-import com.innerly.app.data.Reflection;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
-public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.ReflectionViewHolder> {
+public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.ViewHolder> {
 
-    private List<Reflection> reflections = new ArrayList<>();
+    private final List<String> reflections;
 
-    // Call this to refresh the list with new data
-    public void setReflections(List<Reflection> reflections) {
+    public ReflectionAdapter(List<String> reflections) {
         this.reflections = reflections;
-        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public ReflectionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflate the item layout for each reflection card
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_reflection, parent, false);
-        return new ReflectionViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(android.R.layout.simple_list_item_1, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReflectionViewHolder holder, int position) {
-        // Grab the reflection at this position and bind it to the view
-        Reflection reflection = reflections.get(position);
-        holder.bind(reflection);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.tvText.setText(reflections.get(position));
     }
 
     @Override
@@ -44,27 +34,13 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Re
         return reflections.size();
     }
 
-    // ViewHolder class that holds references to the card's views
-    public static class ReflectionViewHolder extends RecyclerView.ViewHolder {
-        private final TextView tvDate;
-        private final TextView tvMood;
-        private final TextView tvPreview;
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvText;
 
-        public ReflectionViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvDate = itemView.findViewById(R.id.tvReflectionDate);
-            tvMood = itemView.findViewById(R.id.tvReflectionMood);
-            tvPreview = itemView.findViewById(R.id.tvReflectionPreview);
-        }
-
-        public void bind(Reflection reflection) {
-            // Format the date nicely (e.g. Mar 12, 2026)
-            SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
-            String formattedDate = sdf.format(new Date(reflection.getDate()));
-
-            tvDate.setText(formattedDate);
-            tvMood.setText(reflection.getMood());
-            tvPreview.setText(reflection.getText());
+            tvText = itemView.findViewById(android.R.id.text1);
         }
     }
 }
+
