@@ -8,6 +8,7 @@
     <string name="login">Login</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="no_account_create">Don\'t have an account? Create one</string>
+    <string name="already_have_account">Already have an account? Login</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
 
