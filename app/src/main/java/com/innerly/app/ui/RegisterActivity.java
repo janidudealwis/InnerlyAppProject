@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.innerly.app.R;
@@ -27,6 +28,12 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText etEmail = findViewById(R.id.etEmail);
         final EditText etPassword = findViewById(R.id.etPassword);
         final Button btnCreateAccount = findViewById(R.id.btnCreateAccount);
+        final TextView tvLoginLink = findViewById(R.id.tvLoginLink);
+
+        tvLoginLink.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
+        });
 
         btnCreateAccount.setOnClickListener(v -> {
             String email = etEmail.getText().toString().trim();
