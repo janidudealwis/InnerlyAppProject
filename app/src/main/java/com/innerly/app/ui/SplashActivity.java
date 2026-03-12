@@ -2,9 +2,11 @@ package com.innerly.app.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageButton;
+import android.os.Handler;
+import android.os.Looper;
 import androidx.appcompat.app.AppCompatActivity;
 import com.innerly.app.R;
+import com.innerly.app.utils.SessionManager;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -13,16 +15,17 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        // "btnStart" නමැති ImageButton එක සොයාගෙන එයට Click Listener එකක් ලබා දීම
-        ImageButton btnStart = findViewById(R.id.btnStart);
+        SessionManager sessionManager = new SessionManager(this);
 
-        btnStart.setOnClickListener(v -> {
-            // Arrow button එක ක්ලික් කළ විට LoginActivity වෙත යොමු කිරීම
-            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent);
-
-            // Splash Screen එක වසා දැමීම
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            if (sessionManager.isLoggedIn()) {
+                // Already logged in — go straight to MoodCheck
+                startActivity(new Intent(SplashActivity.this, MoodCheckActivity.class));
+            } else {
+                // Not logged in — go to Login
+                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            }
             finish();
-        });
+        }, 2000);
     }
 }

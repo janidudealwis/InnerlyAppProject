@@ -22,6 +22,15 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Re
     public void setReflections(List<Reflection> reflections) {
         this.reflections = reflections;
         notifyDataSetChanged();
+import java.util.List;
+
+public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.ViewHolder> {
+
+    private final List<String> reflections;
+
+    public ReflectionAdapter(List<String> reflections) {
+        this.reflections = reflections;
+
     }
 
     @NonNull
@@ -37,6 +46,16 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Re
         // අදාළ ස්ථානයේ ඇති Reflection එක ලබාගෙන ViewHolder එකට සම්බන්ධ කිරීම
         Reflection reflection = reflections.get(position);
         holder.bind(reflection);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(android.R.layout.simple_list_item_1, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.tvText.setText(reflections.get(position));
+
     }
 
     @Override
@@ -68,3 +87,15 @@ public class ReflectionAdapter extends RecyclerView.Adapter<ReflectionAdapter.Re
         }
     }
 }
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvText;
+
+        ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvText = itemView.findViewById(android.R.id.text1);
+        }
+    }
+}
+
+
+

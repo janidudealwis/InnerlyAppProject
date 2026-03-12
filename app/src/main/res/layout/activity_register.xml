@@ -89,7 +89,7 @@
         android:layout_height="300dp"
         android:importantForAccessibility="no"
         android:scaleType="centerCrop"
-        android:src="@drawable/blob_green_eyes"
+        android:src="@drawable/gg"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -113,6 +113,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 new String[]{String.valueOf(userId)});
     }
 
+    public Cursor getArchivedGoals(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_GOALS + " WHERE " + COL_GOAL_USER_ID + "=? AND " + COL_GOAL_IS_COMPLETED + " = 1",
+                new String[]{String.valueOf(userId)});
+    }
+
     public Cursor getGoalById(long goalId) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.query(TABLE_GOALS, null, COL_GOAL_ID + " = ?", new String[]{String.valueOf(goalId)}, null, null, null);

@@ -53,10 +53,10 @@ public class LoginActivity extends AppCompatActivity {
             int userId = dbHelper.checkUser(email, hashedInput);
 
             if (userId != -1) {
-                // If Login is successful, update session and go to Home
+                // If Login is successful, update session and go to MoodCheck
                 sessionManager.loginUser(userId);
                 Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                startActivity(new Intent(LoginActivity.this, MoodCheckActivity.class));
                 finish();
             } else {
                 // If credentials are invalid

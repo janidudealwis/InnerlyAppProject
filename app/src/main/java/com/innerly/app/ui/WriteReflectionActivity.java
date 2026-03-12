@@ -19,6 +19,9 @@ public class WriteReflectionActivity extends AppCompatActivity {
 
         long goalId = getIntent().getLongExtra("GOAL_ID", -1);
         if (goalId == -1L) {
+        if (goalId == -1) {
+            Toast.makeText(this, "Goal not found", Toast.LENGTH_SHORT).show();
+
             finish();
             return;
         }
@@ -53,3 +56,36 @@ public class WriteReflectionActivity extends AppCompatActivity {
         });
     }
 }
+        final DatabaseHelper db = new DatabaseHelper(this);
+        final EditText etReflectionText = findViewById(R.id.etReflectionText);
+        final RadioGroup rgMoods = findViewById(R.id.rgMoods);
+        final Button btnSaveReflection = findViewById(R.id.btnSaveReflection);
+
+        btnSaveReflection.setOnClickListener(v -> {
+            String text = etReflectionText.getText().toString().trim();
+            int selectedMoodId = rgMoods.getCheckedRadioButtonId();
+
+            if (text.isEmpty()) {
+                Toast.makeText(this, "Please write your reflection", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String mood = "";
+            if (selectedMoodId != -1) {
+                RadioButton rbSelected = findViewById(selectedMoodId);
+                mood = rbSelected.getText().toString();
+            }
+
+            boolean saved = db.addReflection(goalId, text, mood);
+            if (saved) {
+                Toast.makeText(this, "Reflection saved!", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(this, "Error saving reflection", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
+
+
+

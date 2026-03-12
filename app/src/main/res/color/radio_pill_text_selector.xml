@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Checked state → white text for readability on pink -->
+    <item android:state_checked="true" android:color="#FFFFFF" />
+    <!-- Default state → dark grey text -->
+    <item android:color="#555555" />
+</selector>
+
