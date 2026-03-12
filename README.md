@@ -15,7 +15,7 @@
 
 ## 📸 App Showcase
 
-> **Note:** Create a folder named `screenshots` in your root directory and add your app images there to see them here.
+
 
 <p align="center">
   <img src="screenshots/splash.png" width="200" alt="Splash Screen" />
